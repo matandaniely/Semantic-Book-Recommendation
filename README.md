@@ -4,10 +4,14 @@ Book Recommendation System using semantic embeddings and a generative chatbot in
 The application allows users to search for books based on two different and complimentary services:
 
 1) A reccomendation system that genrates 20 books based on how probabale they given a search prompt, a category, rating, and publication year filters. 
+<img width="1337" height="764" alt="slides_over" src="https://github.com/user-attachments/assets/2ea8555f-f9db-4508-8cd9-90117b817bfc" />
 
 2) A chatbot that given a book's title it generates a description using a large language model that is pretrained and fed more accurate info based on tabular data. 
+<img width="1276" height="384" alt="chatbot tab" src="https://github.com/user-attachments/assets/f539a105-25ba-4e46-a669-1413a70969d9" />
 
+# Gradio Interface 
 
+Gradio is an ideal choice for the book recommendation system thanks to its simplicity, fast setup, and integration with Python functions like the embedding model and chatbot. It allowed me to create a user-friendly interface with inputs for genre, filters, and even a conversational component using minimal code. However, its limitations become clear if the aim is for a more advanced UI customization, better layout control, or session handling between chatbot and recommendation results. While perfect for prototyping and sharing, scaling it to a production-level web app with personalized user flows may require integrating it into a broader framework like FastAPI or switching to tools like Streamlit or a custom frontend.
 
 ### Choosing a Model
 There are two complementry models that were used:
@@ -19,8 +23,10 @@ There are two complementry models that were used:
 
 ### How I Pretrained 
 1. SentenceTransformer (MiniLM) is pre-trained and loaded directly via Hugging Face (all-MiniLM-L6-v2). No additional fine-tuning is applied; only inference (encoding) is used.
+<img width="1188" height="296" alt="pretraining" src="https://github.com/user-attachments/assets/7b85b51f-1b83-471d-8533-b0df77ba6c1b" />
 
 2. google/flan-t5-base : These models are based on pretrained T5 (Raffel et al., 2020) and fine-tuned with instructions for better zero-shot and few-shot performance. There is one fine-tuned Flan model per T5 model size.
+<img width="902" height="99" alt="tokenizer" src="https://github.com/user-attachments/assets/43173f51-48d0-4a8a-ae57-c144aa86ba44" />
 
 #### Context Length 
 
